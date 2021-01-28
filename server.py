@@ -26,7 +26,3 @@ def timetable(department, td):
         response = sort_by(arg_name, arg_value, response)
 
     return success(response)
-
-
-if __name__ == "__main__":
-    app.run("0.0.0.0")
