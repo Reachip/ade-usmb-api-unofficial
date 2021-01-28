@@ -5,12 +5,15 @@ class TimeTable:
         self.icalendar_handler = icalendar_handler
         self.useless_data = (" ", "CREATED", "LAST-MODIFIED", "UID", "END", "SEQUENCE", "DTSTAMP")
 
+    def _format_line(self, line):
+        return re.sub('\n|,', '', line)
+
     def get_events(self):
         event_cursor = {}
         events = []
 
         for icalendar_line in self.icalendar_handler:
-            raw_line = re.sub('\n|,', '', icalendar_line)
+            raw_line = self._format_line(icalendar_line)
     
             if raw_line == "END:VEVENT":
                 events.append(event_cursor)
