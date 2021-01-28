@@ -35,6 +35,3 @@ def success(message):
 
 def fail(message):
     return jsonify(code=404, response=message)
-
-
-formatters = init_formatters()

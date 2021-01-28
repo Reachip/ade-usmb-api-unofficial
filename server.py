@@ -1,9 +1,9 @@
 from flask import Flask, request
-from api.utils import sort_by, success, fail, formatters
+from api.utils import sort_by, success, fail, init_formatters
 
 
 app = Flask(__name__)
-
+formatters = init_formatters()
 
 @app.route('/api/<department>/<td>')
 def timetable(department, td):
