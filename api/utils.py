@@ -34,7 +34,7 @@ def init_formatters():
                             departement_name.split("/")[2]
                         ].append((filename, formatter))
 
-                    except:
+                    except NameError:
                         formatter_per_departement[departement_name.split("/")[2]] = [
                             (filename, formatter)
                         ]
