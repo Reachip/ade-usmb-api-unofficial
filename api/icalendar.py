@@ -1,5 +1,6 @@
 import requests
 
+
 class ICalendar:
     @staticmethod
     def from_url(url):
@@ -7,5 +8,5 @@ class ICalendar:
 
     @staticmethod
     def from_file(path):
-        with open(path, "r") as icalendar_handler:     
+        with open(path, "r") as icalendar_handler:
             return icalendar_handler.readlines()

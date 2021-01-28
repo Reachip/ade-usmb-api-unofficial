@@ -1,9 +1,10 @@
 from dateutil.parser import parse
 
+
 class TimeTableFormatter:
     def __init__(self, timetable):
         self.timetable = timetable
-    
+
     def format(self):
         formatted_timetable = self.timetable.get_events()
 
@@ -11,8 +12,9 @@ class TimeTableFormatter:
             try:
                 event["teacher"] = event.pop("DESCRIPTION")
                 event["teacher"] = event["teacher"].replace("\\n", " ")
-            
-            except KeyError: pass
+
+            except KeyError:
+                pass
 
             event["begin"] = str(parse(event.pop("DTSTART")))
             event["room"] = event.pop("LOCATION")
