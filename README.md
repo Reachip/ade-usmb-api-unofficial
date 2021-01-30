@@ -39,32 +39,97 @@ By constraint, the API work with some ICS files located on the folder called "ic
 ## Example
 
 ```bash
-curl http://localhost/api/info1/11
+curl http://localhost/api/info1/11?week=6
 ```
 ```js
 {
   "code": 200,
   "response": [
     {
-      "begin": "2021-05-12 14:00:00+00:00",
-      "end": "2021-05-12 16:00:00+00:00",
-      "room": "D360 (16 pl.)",
-      "subject": "M2105-TD1A-BD"
+      "begin": "08:00",
+      "date": "2021-02-08",
+      "day": "monday",
+      "end": "10:00",
+      "room": "DISTANCIEL INFO",
+      "subject": "M2201-CM-KA",
+      "week": "6"
     },
     {
-      "begin": "2021-04-28 10:00:00+00:00",
-      "end": "2021-04-28 11:00:00+00:00",
-      "room": "A252 (86pl.masque)",
-      "subject": "M2203-soutien-YG"
+      "begin": "08:00",
+      "date": "2021-02-12",
+      "day": "friday",
+      "end": "10:00",
+      "room": "D361 (16 pl.)",
+      "subject": "M2203-TD1A-1-I-YG",
+      "week": "6"
     },
     {
-      "begin": "2021-05-10 12:00:00+00:00",
-      "end": "2021-05-10 14:00:00+00:00",
-      "room": "D353 (12 pl.)",
-      "subject": "M2104-TP11-2-NG"
+      "begin": "14:00",
+      "date": "2021-02-08",
+      "day": "monday",
+      "end": "18:00",
+      "room": "DISTANCIEL INFO",
+      "subject": "M2202-TD1A-NV",
+      "week": "6"
     },
-
-    // etc.
+    {
+      "begin": "15:00",
+      "date": "2021-02-11",
+      "day": "thursday",
+      "end": "16:00",
+      "room": "D253 (16 pl.)\\D350 (16 pl.)",
+      "subject": "M2202-DS-12-NV",
+      "week": "6"
+    },
+    {
+      "begin": "16:00",
+      "date": "2021-02-10",
+      "day": "wednesday",
+      "end": "18:00",
+      "room": "A275 (15pl.)",
+      "subject": "M2206-TD1A-SB",
+      "week": "6"
+    }
+  ]
 }
 ```
 
+```
+curl http://localhost/api/info1/12?date=2021-05-03
+```
+
+
+```js
+{
+  "code": 200,
+  "response": [
+    {
+      "begin": "07:00",
+      "date": "2021-05-03",
+      "day": "monday",
+      "end": "09:00",
+      "room": "DISTANCIEL INFO",
+      "subject": "M2207-TD1A-NV",
+      "week": "18"
+    },
+    {
+      "begin": "09:00",
+      "date": "2021-05-03",
+      "day": "monday",
+      "end": "11:00",
+      "room": "D253 (16 pl.)",
+      "subject": "M2206-TD1A-SB",
+      "week": "18"
+    },
+    {
+      "begin": "13:00",
+      "date": "2021-05-03",
+      "day": "monday",
+      "end": "17:00",
+      "room": "C362 (16 pl.)",
+      "subject": "M2205-TD1A",
+      "week": "18"
+    }
+  ]
+}
+```
