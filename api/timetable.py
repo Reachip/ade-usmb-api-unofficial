@@ -4,14 +4,12 @@ import re
 class TimeTable:
     def __init__(self, icalendar_handler):
         self.icalendar_handler = icalendar_handler
-        self.useless_data = (
-            " ",
-            "CREATED",
-            "LAST-MODIFIED",
-            "UID",
-            "END",
-            "SEQUENCE",
-            "DTSTAMP",
+        self.data = (
+            "DESCRIPTION",
+            "DTSTART",
+            "DTEND",
+            "LOCATION",
+            "SUMMARY",
         )
         self.events = []
 
@@ -35,7 +33,7 @@ class TimeTable:
                     try:
                         data, value = raw_line.split(":")
 
-                        if not data in self.useless_data:
+                        if data in self.data:
                             event_cursor[data] = value
 
                     except ValueError:
