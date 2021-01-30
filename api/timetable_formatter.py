@@ -16,10 +16,16 @@ class TimeTableFormatter:
             except KeyError:
                 pass
 
-            event["begin"] = str(parse(event.pop("DTSTART")))
+            dtstart = parse(event.pop("DTSTART"))
+            dtend = parse(event.pop("DTEND"))
+            
+            event["date"] =  str(dtstart.date())
+            event["day"] =  dtstart.strftime("%A").lower()
+            event["begin"] = f"{dtstart.hour+1:02}:{dtstart.minute:02}"
             event["room"] = event.pop("LOCATION")
             event["subject"] = event.pop("SUMMARY")
-            event["end"] = str(parse(event.pop("DTEND")))
+            event["week"] = str(dtstart.isocalendar()[1])
+            event["end"] = f"{dtend.hour+1:02}:{dtend.minute:02}"
 
         return formatted_timetable
 
